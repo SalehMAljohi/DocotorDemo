@@ -1,0 +1,114 @@
+﻿@model WebApplication1.Models.Root
+
+@{
+    ViewBag.Title = "View1";
+}
+
+<h2>View1</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-bordered table-responsive bg-info">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.meta.pagination.page)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.meta.pagination.pages)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.meta.pagination.limit)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.meta.pagination.total)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.meta.pagination.links.current)
+        </th>
+        <th></th>
+    </tr>
+
+
+    <tr>
+        <td>
+            (@Model.meta.pagination.page)
+        </td>
+        <td>
+            (@Model.meta.pagination.pages)
+        </td>
+        <td>
+            (@Model.meta.pagination.limit)
+        </td>
+        <td>
+            (@Model.meta.pagination.total)
+        </td>
+        <td>
+            (@Model.meta.pagination.links.current)
+        </td>
+        @*<td>
+                @Html.DisplayFor(modelItem => item.title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.body)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+            </td>*@
+    </tr>
+
+
+</table>
+<table class="table table-bordered table-responsive bg-info">
+    <tr>
+        <th>
+            @Html.DisplayName("id")
+        </th>
+        <th>
+            @Html.DisplayName("user")
+        </th>
+        <th>
+            @Html.DisplayName("title")
+        </th>
+        <th>
+            @Html.DisplayName("body")
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.data)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.id)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.user_id)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.title)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.body)
+    </td>
+    @*<td>
+            @Html.DisplayFor(modelItem => item.pagination .page  )
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.meta.pagination.limit )
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.meta.pagination.total)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item}) |
+            @Html.ActionLink("Details", "Details", new { id = item }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item })
+        </td>*@
+</tr>
+    }
+
+</table>
